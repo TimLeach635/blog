@@ -1,5 +1,7 @@
-// Place any global data in this file.
-// You can import this data from anywhere in your site by using the `import` keyword.
+export const SITE_TITLE = "Tim Leach";
+export const SITE_DESCRIPTION = "Tim Leach's website";
 
-export const SITE_TITLE = 'Astro Blog';
-export const SITE_DESCRIPTION = 'Welcome to my website!';
+// social media
+export const MASTODON_LINK = "https://mastodon.social/@timleach";
+export const TWITTER_LINK = "https://twitter.com/TimLeach635";
+export const GITHUB_LINK = "https://github.com/TimLeach635";
