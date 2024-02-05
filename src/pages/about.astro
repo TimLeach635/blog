@@ -1,17 +1,169 @@
 ---
+import { differenceInYears } from "date-fns";
 import Layout from '../layouts/BlogPost.astro';
 ---
 
 <Layout
 	title="About Me"
 	description="More about me"
-	pubDate={new Date("02/02/2024")}
+	pubDate={new Date(2024, 1, 5)}
 	heroImage="/blog-placeholder-about.jpg"
 >
 	<p>
-		My name's Tim.
+		Hi! I'm Tim. I'm a software developer based in the UK. I have lots of different interests, all of which I plan on devoting time to here.
+	</p>
+
+	<h2>Software Dev and Teaching</h2>
+	<p>
+		I've been working as a software developer for {differenceInYears(new Date(), new Date(2019, 10, 19))} years now, with about 2 years of that devoted to
+		training new software developers. I was the trainer on a course called <a href="https://www.techswitch.co.uk/home" target="_blank">TechSwitch</a>, which
+		was set up specifically to help people switch into a role in tech, either from a different career or after a long career break (such as maternity leave).
 	</p>
 	<p>
-		I'm a software developer based in Cambridge, in the UK.
+		I currently run software apprenticeships at a training company called <a href="https://www.corndel.com/" target="_blank">Corndel</a>. We run these
+		apprenticeships in four languages. In descending order of how much I like them, they are JavaScript, C#, Python, and Java.
+	</p>
+	<p>
+		JavaScript and C# are the languages I'm most fluent in – they're also the languages TechSwitch was taught in, the languages I have most
+		experience in as a developer, and the languages I have the most strong opinions on (which no doubt will fill up the blog).
+	</p>
+	<h3>Game Dev</h3>
+	<p>
+		Software development, of course, is both a business and leisure activity. For the latter, I very much enjoy making video games.
+	</p>
+	<p>
+		Thanks to my poor executive function, the only time I have ever really been able to create a game to completion is when I take
+		part in a game jam: a competition where people get together, often in teams, to create a game from scratch in a short period of time.
+	</p>
+	<p>
+		I usually do these with my good friend and colleage Matt, a collaboration which has yielded six games:
+	</p>
+	<ul>
+		<li>
+			<p>
+				<a href="https://ldj.am/$191858" target="_blank">To Boldly Plant</a>, April 2020 – Our first game.
+				Very minimalistic puzzle/walking simulator. Possibly unwinnable!
+			</p>
+		</li>
+		<li>
+			<p>
+				Penguin Tower Defense Game, August 2020 – A tower defense game in which you are a penguin defending his igloo
+				from a land-hungry leopard seal and his horde of minions. Made for an internal game jam we held at work, so
+				I'm afraid you can't play it online! Made with our friend Ariana.
+			</p>
+		</li>
+		<li>
+			<p>
+				<a href="https://ldj.am/$243306" target="_blank">Quantum Genesis Hyperspeed Space Redux</a>,
+				April 2021 – Our first foray into 3D, with a cyberpunk aesthetic, also made with Ariana.
+				You pilot a neon ship through a series of rings. The controls are horrible. Please enjoy!
+			</p>
+		</li>
+		<li>
+			<p>
+				<a href="https://ldj.am/$277328" target="_blank">Chrysopoeia</a>, April 2022 – In my opinion, where our games start to become fun.
+				An alchemy-themed frantic factory game where you must set up apparati in your workshop to produce
+				enough gold to satisfy the King, before he sends you to Gaol.
+			</p>
+		</li>
+		<li>
+			<p>
+				<a href="https://ldj.am/$340360" target="_blank">Deliver us from Evil</a>, April 2023 – <em>XCOM</em> meets <em>Slay the Spire</em>.
+				An isometric turn-based deck builder in which you, a vicar, must battle your way out of Hell through hordes of demons.
+				An absolute banger of a game, and one of the only two that I still occasionally play.
+			</p>
+		</li>
+		<li>
+			<p>
+				<a href="https://ldj.am/$377536" target="_blank">Sunfarers</a>, September 2023 – Relaxing planetary management sim.
+				Aid a budding space outpost by placing plants and buildings on the planet's surface to balance the needs of your people.
+				The game intentionally has no fail state – we wanted to make it as relaxing as possible!
+				The only game we really consider "complete", if rough around the edges. I am extremely proud of this game, and I really
+				hope I one day find the time to port it to mobile.
+			</p>
+		</li>
+	</ul>
+	<p>
+		Unless otherwise stated, I did the majority of the art and music for the above games, and Matt did the majority of the programming (with some overlap, of course).
+	</p>
+	<p>
+		I've only managed to make one game by myself, which I did for the
+		<a href="https://itch.io/jam/gmtk-2023" target="_blank">GMTK Game Jam 2023</a>:
+		<a href="https://timleach.itch.io/sprawl" target="_blank"><em>Sprawl</em></a>.
+		A reverse factory game where you play as <em>the factory</em>, trying to keep up with
+		the player's increasing production needs. Very poorly balanced – if you fancy a challenge, I am currently
+		the only person who has ever beaten this game. Please let me know if you do (with proof!)
+	</p>
+
+	<h2>Academia</h2>
+	<p>
+		I studied maths at university, with a specific focus on <a href="https://en.wikipedia.org/wiki/Numerical_analysis" target="_blank">numerical analysis</a>
+		(in a nutshell: how to get computers to solve physics equations and simulate physical systems accurately).
+		I don't get to do much of this any more, but it still remains a love of mine that I would love to get back into one day.
+	</p>
+	<p>
+		While on this course, I did a module on machine learning. I went into this course thinking AI was a very cool and exciting new piece of technology,
+		and I left it terrified that anybody would use AI for anything remotely important. This was in 2019, and I don't need to tell you
+		that the field has entered the public consciousness to a significant degree since then! My opinions on AI remain the same:
+		it's an impressive field of mathematics, but the capacity for misuse and abuse is significant, and we need to get some legislation in
+		place as quickly as possible, before your mortgage application gets turned down by a racist pattern-matcher.
+	</p>
+
+	<h2>Creative Endeavours</h2>
+	<p>
+		In my spare time, I like to write and perform music and do acting.
+	</p>
+	<h3>Music</h3>
+	<p>
+		I've been very musically enclined for most of my life. My parents forced me at gunpoint to do piano lessons from the age of about 3,
+		which I really hated at the time, but am now quite happy that it's one of the skills I have.
+	</p>
+	<p>
+		In my adult life I'm more inclined towards the bass guitar, which I play in a band at work (and occasionally post videos of me playing to social media).
+	</p>
+	<p>
+		I'm also a keen singer (<em>keen</em> in the sense of "enthusiastic", not in the sense of "good") – in 2015, while at university, I joined an
+		a cappella group called <a href="http://www.ootboxford.com/" target="_blank"><em>Out of the Blue</em></a> as their beatboxer. I stayed for a year,
+		during which time we released <a href="https://open.spotify.com/album/6M0vE5VfRRn1HHm79Sffnc?si=P7sMwO0SQQajJRPqDL0PYA" target="_blank">an album</a>,
+		which I'm quite proud of!
+	</p>
+	<p>
+		In terms of <em>writing</em> music, every year my company puts on an album writing challenge, in which we collaboratively write, record, and
+		produce an album's worth of genre-spanning music. I have written two songs for this so far
+		(<a href="https://open.spotify.com/track/0155T1yNzqiCHbohBrQOoP?si=b4f3da6fa72647eb" target="_blank"><em>Long Cold Sleep</em></a>, a blues-rock sci-fi
+		inspired song about the horrors of capitalism, and
+		<a href="https://open.spotify.com/track/2LD6Z0iAmv5NmerKogOtx1?si=529dbdacf162457b" target="_blank"><em>It Has To Be Now</em></a>, a funk song
+		about the horrors of having a poor attention span), both of which I genuinely consider some of the best things I've produced in my life.
+		(I also produced the album art for the latter song above!)
+	</p>
+	<h3>Acting</h3>
+	<p>
+		I've been doing theatre acting for quite a while, since I joined a drama group in my early teens, continuing through school. I took a break after that,
+		but after graduating from university I have joined the <a href="https://en.wikipedia.org/wiki/Amateur_theatre">am-dram</a> scene, and appear in
+		about one play a year on average.
+	</p>
+	<p>
+		I have a keen interest in film and cinematography as well, and in fact had a brief and sporadic career as a background child actor. This culminated
+		in my role as Joe Coogan in a TV show called <a href="https://www.imdb.com/title/tt1698441/" target="_blank"><em>The Trip</em></a>.
+		I didn't stick to the acting career, so this very exciting part of my life has been relegated to a background fact about myself, where I can direct people to
+		<a href="https://www.imdb.com/name/nm6344198/" target="_blank">my IMDb page</a> as a fun party trick, and <em>very occasionally</em>
+		get recognised in social situations for a small ego boost.
+	</p>
+	<p>
+		My interest in film now exists entirely in my YouTube watch history, and various ideas that currently exist solely in my head – though
+		hopefully soon to find themselves scattered liberally throughout this blog.
+	</p>
+
+	<h2>Why write a blog?</h2>
+	<p>
+		I've made this website almost <em>because</em> I have so many sporadic interests. I have far more than I was able to list here. And many of these
+		interests are ephemeral – gone before I get the chance to use them to create something I can share with people.
+	</p>
+	<p>
+		I've made this website because I have lots more to share with the world than the stuff that I <em>complete</em>. I have so many
+		<em>thoughts</em>, all the time, and almost none of them see the light of day.
+	</p>
+	<p>
+		I think that's a shame.
 	</p>
 </Layout>
