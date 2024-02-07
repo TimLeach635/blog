@@ -1,16 +1,65 @@
 ---
-title: 'First post'
+title: 'git init'
 description: 'Lorem ipsum dolor sit amet'
-pubDate: 'Jul 08 2022'
-heroImage: '/blog-placeholder-3.jpg'
+pubDate: 'Feb 07 2024'
+heroImage: '/blog/devlog.png'
 ---
 
-Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Vitae ultricies leo integer malesuada nunc vel risus commodo viverra. Adipiscing enim eu turpis egestas pretium. Euismod elementum nisi quis eleifend quam adipiscing. In hac habitasse platea dictumst vestibulum. Sagittis purus sit amet volutpat. Netus et malesuada fames ac turpis egestas. Eget magna fermentum iaculis eu non diam phasellus vestibulum lorem. Varius sit amet mattis vulputate enim. Habitasse platea dictumst quisque sagittis. Integer quis auctor elit sed vulputate mi. Dictumst quisque sagittis purus sit amet.
+## `git commit -m "Initial commit"`
 
-Morbi tristique senectus et netus. Id semper risus in hendrerit gravida rutrum quisque non tellus. Habitasse platea dictumst quisque sagittis purus sit amet. Tellus molestie nunc non blandit massa. Cursus vitae congue mauris rhoncus. Accumsan tortor posuere ac ut. Fringilla urna porttitor rhoncus dolor. Elit ullamcorper dignissim cras tincidunt lobortis. In cursus turpis massa tincidunt dui ut ornare lectus. Integer feugiat scelerisque varius morbi enim nunc. Bibendum neque egestas congue quisque egestas diam. Cras ornare arcu dui vivamus arcu felis bibendum. Dignissim suspendisse in est ante in nibh mauris. Sed tempus urna et pharetra pharetra massa massa ultricies mi.
+Programmers are used to this command. When a piece of software is being developed collaboratively, a tool called "git" is
+usually used to help the team of developers keep track of the evolution of the code over time. Devs add sort-of "save points"
+called _commits_ into this tool, to save and share their progress.
 
-Mollis nunc sed id semper risus in. Convallis a cras semper auctor neque. Diam sit amet nisl suscipit. Lacus viverra vitae congue eu consequat ac felis donec. Egestas integer eget aliquet nibh praesent tristique magna sit amet. Eget magna fermentum iaculis eu non diam. In vitae turpis massa sed elementum. Tristique et egestas quis ipsum suspendisse ultrices. Eget lorem dolor sed viverra ipsum. Vel turpis nunc eget lorem dolor sed viverra. Posuere ac ut consequat semper viverra nam. Laoreet suspendisse interdum consectetur libero id faucibus. Diam phasellus vestibulum lorem sed risus ultricies tristique. Rhoncus dolor purus non enim praesent elementum facilisis. Ultrices tincidunt arcu non sodales neque. Tempus egestas sed sed risus pretium quam vulputate. Viverra suspendisse potenti nullam ac tortor vitae purus faucibus ornare. Fringilla urna porttitor rhoncus dolor purus non. Amet dictum sit amet justo donec enim.
+For those programmers like me who work on the occasional personal project, the above command will be familiar:
+it creates a _commit_ with the message "Initial commit".
 
-Mattis ullamcorper velit sed ullamcorper morbi tincidunt. Tortor posuere ac ut consequat semper viverra. Tellus mauris a diam maecenas sed enim ut sem viverra. Venenatis urna cursus eget nunc scelerisque viverra mauris in. Arcu ac tortor dignissim convallis aenean et tortor at. Curabitur gravida arcu ac tortor dignissim convallis aenean et tortor. Egestas tellus rutrum tellus pellentesque eu. Fusce ut placerat orci nulla pellentesque dignissim enim sit amet. Ut enim blandit volutpat maecenas volutpat blandit aliquam etiam. Id donec ultrices tincidunt arcu. Id cursus metus aliquam eleifend mi.
+This message means a lot, I think. "This is my first update of many". It's a message to the self -- like looking at yourself
+in the mirror and saying "Here's the first lot of code, but it won't be the last. I'll be back."
 
-Tempus quam pellentesque nec nam aliquam sem. Risus at ultrices mi tempus imperdiet. Id porta nibh venenatis cras sed felis eget velit. Ipsum a arcu cursus vitae. Facilisis magna etiam tempor orci eu lobortis elementum. Tincidunt dui ut ornare lectus sit. Quisque non tellus orci ac. Blandit libero volutpat sed cras. Nec tincidunt praesent semper feugiat nibh sed pulvinar proin gravida. Egestas integer eget aliquet nibh praesent tristique magna.
+Funnily enough, the [actual first commit](https://github.com/TimLeach635/blog/commit/863e801363eeb4fafc7d4d2c225bc5594d57f1c3) for this website
+has the message "Create from template" -- but the _intention_ is the same, and is familiar to anybody who has started doing something
+with the intention of carrying on later.
+
+I really want to carry on with this, but my track record isn't the best. I think my best shot is to talk about all the things I
+_haven't_ finished. All life is a work in progress, and if I wait until I'm "done", I'll never tell anyone about anything I do.
+
+So, to start the process off, I'm going to talk about my latest unfinished project: this website!
+
+## What's the stack?
+
+This website ([repo](https://github.com/TimLeach635/blog)) is being built in [Astro](https://astro.build/),
+a nifty little static site generator that I've been wanting to try for ages.
+
+I've set it up with the default blog template, but there are a lot of features it doesn't have that are all on my wishlist
+(tags for blog posts, view counters, a CMS, dark mode, comments). There are a few templates on the Astro website that add some of these,
+and it should be pretty straightforward to start using one of them, but it could be more fun to write them myself. I have more
+control over them that way.
+
+The site is being hosted in my VPS. It doesn't have much space or bandwidth, but I'm not expecting much traffic
+so it's perfectly serviceable for now.
+
+I'm using [Caddy](https://caddyserver.com/) as the server, which is working pretty well so far.
+Astro builds into a `dist` folder, so Caddy runs a fileserver directly out of that folder.
+(You also get HTTPS for free, which is incredibly neat.)
+
+I haven't set up any automatic deployments yet, so the process for making any changes to the website,
+including making new blog posts, is:
+
+1. Make the changes locally
+2. Push the changes to GitHub
+3. SSH into the VPS
+4. Pull the changes
+5. `npm install`
+6. `npm run build`
+7. Reload Caddy
+
+It would be better to automate this, obviously, but at the moment it adds negligible overhead since I tend to do these
+updates in bulk.
+
+## Next steps
+
+I have lots of cool ideas for this, so if I'm honest, the next step is to figure out what the next step should be!
+I think tags are almost certainly the most useful improvement, but the actual most important thing is simply to write more blog posts.
+
+Watch this space and see you around!
