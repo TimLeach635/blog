@@ -1,0 +1,41 @@
+---
+import "../styles/reviewBox.css";
+
+interface CategoryScore {
+	category: string,
+	score: number,
+}
+
+interface Props {
+	gameName: string,
+	categoryScores: CategoryScore[],
+	totalScore: number,
+	image: string,
+	imageAltText: string,
+}
+
+const {
+	gameName,
+	categoryScores,
+	totalScore,
+	image,
+	imageAltText,
+} = Astro.props;
+---
+
+<section class="review-box">
+	<div class="review-box__text">
+		<h2>{gameName}</h2>
+		<ul class="review-box__categories">
+			{categoryScores.map(score => <li class="review-box__category-score-item">
+				<span class="review-box__category-name">{score.category}</span>
+				<span class="review-box__category-score">{score.score}</span>
+			</li>)}
+		</ul>
+		<span class="review-box__total">
+			<span class="review-box__total-words">Total</span>
+			<span class="review-box__total-score">{totalScore}</span>
+		</span>
+	</div>
+	<img class="review-box__image" src={image} alt={imageAltText}>
+</section>
