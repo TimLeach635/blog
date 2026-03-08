@@ -5,6 +5,6 @@ import sitemap from '@astrojs/sitemap';
 
 // https://astro.build/config
 export default defineConfig({
-  site: 'https://timleach635.github.io',
+  site: 'https://tleach.uk',
   integrations: [mdx(), sitemap()],
 });
