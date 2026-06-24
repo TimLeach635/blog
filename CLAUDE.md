@@ -40,12 +40,29 @@ Co-Authored-By: Claude Sonnet 4.6 <noreply@anthropic.com>
 ## Commands
 
 ```bash
-npm run dev        # Dev server at localhost:4321 (hot reload)
-npm run build      # Type-check (astro check) then build to ./dist/
-npm run preview    # Serve the built ./dist/ locally
+npm run dev            # Dev server at localhost:4321 (hot reload)
+npm run build          # Type-check (astro check) then build to ./dist/
+npm run preview        # Serve the built ./dist/ locally
+npm test               # Run the Vitest suite once
+npm run test:watch     # Run Vitest in watch mode
+npm run test:coverage  # Run the suite with a V8 coverage report
 ```
 
-There is no test suite and no separate lint step — `astro check` (bundled into `build`) is the only automated checker. Always run `npm run build` before raising a PR to confirm the type check passes.
+There is no separate lint step — `astro check` (bundled into `build`) is the type checker. Always run `npm run build` before raising a PR to confirm the type check passes.
+
+### Tests
+
+Tests use [Vitest](https://vitest.dev) and run in two layers:
+
+- **Unit tests** live next to the code as `*.test.ts` (e.g. `src/components/ReviewBox.test.ts`) and in `test/`. Astro components are rendered with Astro's experimental Container API via the `test/helpers.ts` `renderComponent`/`renderToDocument` helpers, then queried with `linkedom`.
+- **An end-to-end build test** (`test/build.test.ts`) runs `astro build` once in `beforeAll` and asserts on the generated `dist/` HTML and RSS — this is the only way to cover `BaseHead` and anything that reads `Astro.site` (see gotcha below).
+
+Gotchas worth knowing:
+
+- **`Astro.site` is unavailable in the Container API.** Astro's container derives `Astro.site` from the manifest, but `createManifest` drops the `site` field, so `Astro.site` is always `undefined` in unit tests. Components that read it (like `BaseHead`, which throws on `new URL(path, undefined)`) can only be tested through the build-output test.
+- **Vitest version must match Astro's Vite.** Astro 6 ships Vite 7, so Vitest 4+ is required — older Vitest bundles Vite 5 and fails at startup with `Cannot read properties of undefined (reading 'ssr')`.
+- **The content schema is exported.** `blogSchema` is exported from `src/content.config.ts` so it can be unit-tested and reused to validate the real post files on disk (`test/content.test.ts`).
+- Post URLs come from `post.id` (the filename without extension), **not** `post.slug` — `slug` is `undefined` with the glob loader in Astro 5/6.
 
 ## Architecture
 
