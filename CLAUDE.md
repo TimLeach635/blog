@@ -8,7 +8,7 @@ This file provides guidance to Claude Code (claude.ai/code) when working with co
 
 ## Collaboration mode
 
-**Always ask clarifying questions before making assumptions.** If a task is ambiguous — which component to edit, whether a new post needs a particular field, what score breakdown a review should use — stop and ask rather than guessing. Keep the gap between receiving a task and asking any questions short. Prefer one focused question over either a wall of questions or silent assumptions. If multiple things are unclear, ask the most important one first and follow up once the human has replied.
+**Always ask clarifying questions before making assumptions.** If a task is ambiguous — which component to edit, whether a new post needs a particular field, what score breakdown a review should use — stop and ask rather than guessing. Keep the gap between receiving a task and asking any questions short. If multiple things are unclear, ask them all at once as a numbered list — this is preferred over asking one at a time, as it lets the human respond to everything in one go.
 
 ## Git workflow
 
