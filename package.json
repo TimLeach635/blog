@@ -7,17 +7,24 @@
     "start": "astro dev",
     "build": "astro check && astro build",
     "preview": "astro preview",
-    "astro": "astro"
+    "astro": "astro",
+    "test": "vitest run",
+    "test:watch": "vitest",
+    "test:coverage": "vitest run --coverage"
   },
   "dependencies": {
     "@astrojs/check": "^0.4.1",
     "@astrojs/mdx": "^5.0.4",
     "@astrojs/rss": "^4.0.4",
-    "@astrojs/sitemap": "^3.0.5",
+    "@astrojs/sitemap": "^3.7.3",
     "astro": "^6.1.9",
     "typescript": "^5.3.3"
   },
   "devDependencies": {
-    "date-fns": "^3.3.1"
+    "@vitest/coverage-v8": "^4.1.9",
+    "date-fns": "^3.3.1",
+    "gray-matter": "^4.0.3",
+    "linkedom": "^0.18.12",
+    "vitest": "^4.1.9"
   }
 }
