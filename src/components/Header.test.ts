@@ -1,12 +1,15 @@
 import { describe, it, expect } from 'vitest';
 import { renderToDocument } from '../../test/helpers';
 import Header from './Header.astro';
-import {
-  SITE_TITLE,
-  MASTODON_LINK,
-  TWITTER_LINK,
-  GITHUB_LINK,
-} from '../consts';
+
+// Expected values are hard-coded (rather than imported from consts) so that a
+// future change to the title or social links forces a deliberate test update.
+const EXPECTED_TITLE = 'Tim Leach';
+const EXPECTED_SOCIAL_LINKS = [
+  'https://mastodon.social/@timleach',
+  'https://twitter.com/TimLeach635',
+  'https://github.com/TimLeach635',
+];
 
 async function header() {
   return renderToDocument(Header, { request: new Request('https://tleach.uk/') });
@@ -16,7 +19,7 @@ describe('Header', () => {
   it('renders the site title linking home', async () => {
     const doc = await header();
     const titleLink = doc.querySelector('h2 a');
-    expect(titleLink?.textContent).toBe(SITE_TITLE);
+    expect(titleLink?.textContent).toBe(EXPECTED_TITLE);
     expect(titleLink?.getAttribute('href')).toBe('/');
   });
 
@@ -33,7 +36,7 @@ describe('Header', () => {
     const hrefs = [...doc.querySelectorAll('.social-links a')].map((a) =>
       a.getAttribute('href'),
     );
-    expect(hrefs).toEqual([MASTODON_LINK, TWITTER_LINK, GITHUB_LINK]);
+    expect(hrefs).toEqual(EXPECTED_SOCIAL_LINKS);
   });
 
   it('opens social links in a new tab', async () => {
